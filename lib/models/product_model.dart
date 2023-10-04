@@ -1,12 +1,24 @@
 class Product {
-  final int id;
+  final String? id;
+  double discount;
+  String imagePath;
+  double price;
+  String description;
+  String supplier;
+  String unit;
   String name;
   bool isActive;
 
   Product({
-    required this.id,
+    this.id,
     this.name = '',
     this.isActive = true,
+    this.imagePath = '',
+    this.description = '',
+    this.discount = 0,
+    this.price = 0,
+    this.supplier = '',
+    this.unit = '',
   });
 
   @override

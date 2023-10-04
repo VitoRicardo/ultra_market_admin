@@ -26,24 +26,18 @@ class AddCategory extends StatelessWidget {
           color: AppColors.white,
           borderRadius: BorderRadius.circular(HardParameters.radiusCard),
         ),
-        child: DottedBorder(
-          borderType: BorderType.RRect,
-          padding: EdgeInsets.zero,
-          radius: Radius.circular(HardParameters.radiusCard),
-          child: SizedBox(
-            height: 54.h,
-            width: double.infinity,
-            child: TextButton(
-              style: TextButton.styleFrom(
-                padding: EdgeInsets.zero,
-                shape: RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.circular(HardParameters.radiusCard),
-                ),
+        child: SizedBox(
+          height: 54.h,
+          width: double.infinity,
+          child: TextButton(
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.zero,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(HardParameters.radiusCard),
               ),
-              onPressed: () => context.pushNamed(NamedRoutes.category),
-              child: const Icon(Icons.add),
             ),
+            onPressed: () => context.pushNamed(NamedRoutes.category),
+            child: const Icon(Icons.add),
           ),
         ),
       ),

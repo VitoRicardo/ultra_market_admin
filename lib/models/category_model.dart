@@ -1,18 +1,27 @@
+import 'product_model.dart';
+
 class Category {
   final int? id;
-  final String category;
+  String category;
+  String? imagePath;
+  String? description;
+  List<Product> listProducts;
   bool isActive;
-  int totalProducts;
+  double? promotion;
+
   Category({
     this.id,
     required this.category,
+    this.imagePath,
+    this.description,
+    this.promotion,
+    List<Product>? listProducts,
     this.isActive = false,
-    this.totalProducts = 0,
-  });
+  }) : listProducts = listProducts ?? [];
 
   @override
   toString() {
-    return "\n{ id:$id >> $category // isSelected: $isActive // CompleteTasks: $totalProducts } ";
+    return "\n{ id:$id >> $category \n isSelected: $isActive \n ListProducts: $listProducts } ";
   }
 
   isSelected() => isActive = !isActive;

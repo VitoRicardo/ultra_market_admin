@@ -14,23 +14,23 @@ class AddProduct extends StatelessWidget {
         width: 0,
       );
     }
-    return Container(
+    return DottedBorder(
+      dashPattern: const [3, 3],
       padding: EdgeInsets.zero,
-      alignment: Alignment.center,
-      height: 50.h,
-      width: double.infinity,
-      decoration: BoxDecoration(color: Colors.grey.withOpacity(0.1)),
-      child: DottedBorder(
+      child: Container(
         padding: EdgeInsets.zero,
+        alignment: Alignment.center,
+        height: 50.h,
+        width: double.infinity,
+        decoration: BoxDecoration(color: Colors.grey.withOpacity(0.1)),
         child: TextButton(
-          style: TextButton.styleFrom(shape: const ContinuousRectangleBorder()),
+          style: TextButton.styleFrom(
+              shape: const ContinuousRectangleBorder(),
+              padding: EdgeInsets.zero),
           onPressed: () {},
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [Icon(Icons.add, size: 20.h)],
-            ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [Icon(Icons.add, size: 20.h)],
           ),
         ),
       ),

@@ -27,11 +27,9 @@ class HomePage extends StatelessWidget {
           const AddCategory(),
           for (String category in dummy.keys)
             CardCategory(
-              category: Category(category: category),
-              productList: [
-                for (String product in dummy[category]!)
-                  Product(id: 0, name: product),
-              ],
+              category: Category(category: category, listProducts: [
+                for (String product in dummy[category]!) Product(name: product),
+              ]),
             ),
         ],
       ),

@@ -17,45 +17,26 @@ class CrudTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (numberPad) {
-      return SizedBox(
-        height: 50.h,
-        child: TextField(
-          onChanged: onChanged,
-          keyboardType: TextInputType.number,
-          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-          textAlignVertical: TextAlignVertical.center,
-          cursorColor: AppColors.darkGreen,
-          decoration: InputDecoration(
-            fillColor: AppColors.lightGreen,
-            contentPadding: EdgeInsets.only(bottom: 5.h),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20.h),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20.h),
-            ),
-          ),
-        ),
-      );
-    }
     return SizedBox(
       height: 50.h,
       child: TextField(
         onChanged: onChanged,
-        keyboardType: TextInputType.emailAddress,
+        keyboardType:
+            numberPad ? TextInputType.number : TextInputType.emailAddress,
+        inputFormatters:
+            numberPad ? [FilteringTextInputFormatter.digitsOnly] : null,
         textAlignVertical: TextAlignVertical.center,
         cursorColor: AppColors.darkGreen,
         decoration: InputDecoration(
-          fillColor: AppColors.lightGreen,
-          contentPadding: EdgeInsets.only(bottom: 5.h),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20.h),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20.h),
-          ),
-        ),
+            fillColor: AppColors.lightGreen,
+            contentPadding: EdgeInsets.only(left: 20.h, bottom: 5.h),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25.h),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25.h),
+            ),
+            hintText: hintText),
       ),
     );
   }

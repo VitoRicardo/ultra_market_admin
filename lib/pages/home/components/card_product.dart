@@ -13,11 +13,14 @@ class CardProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (!isExpanded) {
+      return const SizedBox();
+    }
     return Container(
       clipBehavior: Clip.antiAlias,
       padding: EdgeInsets.zero,
       alignment: Alignment.center,
-      height: isExpanded ? 50.h : 0,
+      height: 50.h,
       width: double.infinity,
       decoration: BoxDecoration(color: Colors.grey.withOpacity(0.1)),
       child: Slidable(
@@ -55,7 +58,9 @@ class CardProduct extends StatelessWidget {
           ],
         ),
         child: TextButton(
-          style: TextButton.styleFrom(shape: const ContinuousRectangleBorder()),
+          style: TextButton.styleFrom(
+              shape: const ContinuousRectangleBorder(),
+              padding: EdgeInsets.zero),
           onPressed: () {},
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -68,7 +73,7 @@ class CardProduct extends StatelessWidget {
                 ),
                 Icon(
                   Icons.arrow_forward_ios_sharp,
-                  size: isExpanded ? 20.h : 0,
+                  size: 20.h,
                 )
               ],
             ),

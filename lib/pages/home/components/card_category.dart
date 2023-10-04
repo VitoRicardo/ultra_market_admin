@@ -9,10 +9,11 @@ import 'add_product.dart';
 
 class CardCategory extends StatefulWidget {
   final Category category;
-  final List<Product> productList;
 
-  const CardCategory(
-      {super.key, required this.category, required this.productList});
+  const CardCategory({
+    super.key,
+    required this.category,
+  });
 
   @override
   State<CardCategory> createState() => _CardCategoryState();
@@ -20,6 +21,7 @@ class CardCategory extends StatefulWidget {
 
 class _CardCategoryState extends State<CardCategory> {
   bool isExpanded = false;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -95,7 +97,7 @@ class _CardCategoryState extends State<CardCategory> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '${widget.category.totalProducts} Products',
+                        '${widget.category.listProducts.length} Products',
                         style: const TextStyle(
                             color: AppColors.grey, fontWeight: FontWeight.bold),
                       ),
@@ -124,7 +126,10 @@ class _CardCategoryState extends State<CardCategory> {
             height: 5.h,
           ),
           AddProduct(isExpanded: isExpanded),
-          for (Product product in widget.productList)
+          SizedBox(
+            height: 5.h,
+          ),
+          for (Product product in widget.category.listProducts)
             CardProduct(
               product: product,
               isExpanded: isExpanded,
